@@ -1,4 +1,8 @@
-//
-// Created by eprin on 6/09/2023.
-//
+#include "GameInterface.h"
 
+int main() {
+    GameInterface gameInterface;
+    gameInterface.run();
+
+    return 0;
+}

@@ -1,8 +1,10 @@
 #include "Line.h"
 #include "BSPTree.h"
 
-int main() {
+int main()
+{
     BSPTree tree;
     tree.test();
+    // tree.testCollisionDetection();
     return 0;
 }

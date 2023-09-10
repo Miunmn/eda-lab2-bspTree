@@ -12,7 +12,7 @@ class Safe {
 
 private:
     T value;
-    static constexpr T EPSILON = static_cast<T>(1e-9);
+    static constexpr T EPSILON = static_cast<T>(1e-5);
 
 public:
     Safe() : value(static_cast<T>(0)) {}
@@ -94,7 +94,7 @@ public:
     void setValue(T value) {
         this->value = value;
     }
-
+    
     // Funciones matemáticas
     static Safe abs(const Safe& other) {
         return Safe(std::abs(other.value));
@@ -149,7 +149,7 @@ using NType = Safe<float>;
 namespace GameParams {
     inline float CIRCLE_RADIUS = 5.0;
     inline float PLAYER_SPEED  = 1.0;
-    inline float ENEMY_SPEED   = 0.8 * PLAYER_SPEED;
+    inline float ENEMY_SPEED   = 0.9 * PLAYER_SPEED;
     inline int   FRAME_TIME_MS = 16; // 60 FPS
 }
 

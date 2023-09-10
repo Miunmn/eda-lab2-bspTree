@@ -42,7 +42,7 @@ public:
 
     // Imprimir
     friend std::ostream& operator<<(std::ostream& os, const Point& p) {
-        os << "(" << p.x.getValue() << ", " << p.y.getValue() << ")";
+        os << "(" << p.x.getValue() << "," << p.y.getValue() << ")";
         return os;
     }
 };
