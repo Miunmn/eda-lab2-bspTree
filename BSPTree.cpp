@@ -69,6 +69,7 @@ void BSPTree::print()
     root->print(root);
 }
 
+
 /********************************************************************************************
  *                                FUNCIONES DE TESTEO
  ********************************************************************************************/
@@ -120,5 +121,46 @@ void BSPTree::test()
     for (const auto &segment : allSegments)
     {
         std::cout << "  " << segment << ": " << (root->verifySegment(segment) ? "true" : "false") << "\n";
+    }
+}
+
+void BSPTree::testCollisionDetection()
+{
+    std::cout << "Iniciando pruebas de detección de colisiones..." << std::endl;
+
+    // Crear un árbol BSP
+    BSPTree tree;
+    std::vector<LineSegment> segments = {
+        LineSegment(Point(50, 50), Point(550, 50)),
+        LineSegment(Point(550, 50), Point(550, 550)),
+        LineSegment(Point(550, 550), Point(50, 550)),
+        LineSegment(Point(50, 550), Point(50, 50))};
+
+    std::vector<std::pair<Point, Point>> testCases = {
+        {Point(293.678, 51.4665), Point(293.526, 0.6811)},
+        {Point(293.526, 50.6811), Point(293.374, 9.8958)},
+        {Point(293.374, 49.8958), Point(293.221, 9.1104)}};
+
+    // Insertar los segmentos en el árbol
+    tree.insert(segments);
+    tree.print();
+    std::cout << std::endl;
+
+    for (const auto &testCase : testCases)
+    {
+        Point initial = testCase.first;
+        Point final = testCase.second;
+
+        CollisionResult result = tree.checkCollision(initial, final, Point(0, 0));
+        std::cout << "Prueba desde " << initial << " hasta " << final << ": ";
+
+        if (result.collisionDetected)
+        {
+            std::cout << "Colisión detectada con vector normal " << result.normal << std::endl;
+        }
+        else
+        {
+            std::cout << "No se detectó colisión" << std::endl;
+        }
     }
 }

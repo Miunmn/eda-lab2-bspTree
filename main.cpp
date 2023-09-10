@@ -4,7 +4,7 @@
 int main()
 {
     BSPTree tree;
-    tree.test();
-    // tree.testCollisionDetection();
+    // tree.test();
+    tree.testCollisionDetection();
     return 0;
 }

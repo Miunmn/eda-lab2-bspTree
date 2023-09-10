@@ -79,7 +79,7 @@ public:
 
     void print();
     void test();
-    // void testCollisionDetection();
+    void testCollisionDetection();
 };
 
 #endif // BSP_H
